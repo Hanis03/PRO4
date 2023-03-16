@@ -3,7 +3,6 @@ import cz.spsmb.ctvrtak.c_spring.o_groovy_test.main.TestCollection
 import cz.spsmb.ctvrtak.c_spring.o_groovy_test.main.WelcomeScreen
 import cz.spsmb.ctvrtak.c_spring.o_groovy_test.main.MainTest
 
-
 beans {
     testCollection1(TestCollection){
         grvCode =
@@ -40,7 +39,7 @@ beans {
                 ref("t2_2"), ref("t2_3"), ref("t2_4"), ref("t2_5")
         ]
     }
-    testCollection(TestCollection){
+    testCollection3(TestCollection){
         grvCode =
                 "    String check(String in) {\n" +
                         "        ArrayList<String> al =  new ArrayList()\n" +
@@ -74,9 +73,26 @@ beans {
                         "        }\n" +
                         "        return al.join(\" \")\n" +
                         "    }\n";
-        difficulty = 1.3
+        difficulty = 1.1
         testCollection = [
-                ref("t4_1")
+                ref("t4_0"), ref("t4_1"), ref("t4_2"), ref("t4_3")
+        ]
+    }
+    testCollection(TestCollection){
+        grvCode =
+                "    String check(String in) {\n" +
+                        "        ArrayList<String> al =  new ArrayList()\n" +
+                        "        String[] arr=in.split(\" \")\n" +
+                        "\n" +
+                        "\n" +
+                        "//      zde doplňte kód\n " +
+                        "\n" +
+                        "\n" +
+                        "        return al.join(\" \")\n" +
+                        "    }\n";
+        difficulty = 1
+        testCollection = [
+                ref("t5_0"),ref("t5_1"),ref("t5_2"),ref("t5_3")
         ]
     }
     t1_0(MainTest) {
@@ -177,7 +193,7 @@ beans {
         id = 3
         entry = "Doplňte metodu String check(String in) o algoritmus, který\n" +
                 "1. seřadí vstupní pole dle velikosti do nového pole int[] tmp,\n" +
-                "2. naplní výstupní seznam al sestupně nejmenším a každým v pořadí druhým prvkem seřazeného pole tmp."
+                "2. naplní výstupní seznam al vzestupně nejmenším a každým v pořadí druhým prvkem seřazeného pole tmp."
         inp = "1 0 2 999 3 8 4 7 5 6"
         out = "0 2 4 6 8"
     }
@@ -203,7 +219,50 @@ beans {
         inp = "10 20 18 27"
         out = "10 9"
     }
-
+    t4_2(MainTest) {
+        id = 2
+        entry = "Rekurze, aritmetická posloupnost od 1 : Víte, že platí ap(d, k) = \n" +
+                "                                                               1; pro k=0,\n" +
+                "                                                               d + ap(d, k-1); k > 0\n" +
+                "Vytvořte rekurzivní metodu rec(int d, int k), která bude vracet k-tý člen aritmetické posloupnosti s diferencí d, kde první člen je 1 (formát d0, k0, d1, k1, ...). " +
+                "Zbytek kódu se postará o správný výpis aritmetické posloupnosti."
+        inp = "1 1 7 2"
+        out = "2 15"
+    }
+    t4_3(MainTest) {
+        id = 3
+        entry = "Rekurze, geometrická posloupnost od 1 : Víte, že platí gp(q, k) = \n" +
+                "                                                               1; pro k=0,\n" +
+                "                                                               q * gp(q, k-1); k > 0\n" +
+                "Vytvořte rekurzivní metodu rec(int q, int k), která bude vracet k-tý člen gemoterické posloupnosti s kvocientem q, kde první člen je 1 (formát q0, k0, q1, k1, ...). " +
+                "Zbytek kódu se postará o správný výpis geometrické posloupnosti."
+        inp = "1 1 7 2"
+        out = "1 49"
+    }
+    t5_0(MainTest) {
+        id = 0
+        entry = "Doplňte metodu String check(String in) o algoritmus, který naplní seznam al dvojkovou reprezentací vstupních čísel v osmičkovém fotmátu"
+        inp = "014 077 023 055 063"
+        out = "1100 111111 10011 101101 110011"
+    }
+    t5_1(MainTest) {
+        id = 1
+        entry = "Doplňte metodu String check(String in) o algoritmus, který naplní seznam al osmičkovou  reprezentací vstupních čísel v binárním fotmátu"
+        inp = "1100 111111 10011 101101 110011"
+        out = "14 77 23 55 63"
+    }
+    t5_2(MainTest) {
+        id = 2
+        entry = "Doplňte metodu String check(String in) o algoritmus, který naplní seznam al šestkovou  reprezentací vstupních čísel v hexadecimálním fotmátu"
+        inp = "AF 6F AB DE AD BE EF"
+        out = "451 303 443 1010 445 514 1035"
+    }
+    t5_3(MainTest) {
+        id = 3
+        entry = "Doplňte metodu String check(String in) o algoritmus, který převede vstupní znaky na číslo a to vypíše v hexadecimálním fotmátu"
+        inp = "A h o j"
+        out = "41 68 6f 6a"
+    }
     welcomeScreen(WelcomeScreen){
         messages = [
                 " Vítej v Groovy Simple Testu ! ",

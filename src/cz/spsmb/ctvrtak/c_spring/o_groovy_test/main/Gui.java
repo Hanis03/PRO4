@@ -170,7 +170,7 @@ public class Gui extends Application {
         Gui.this.lMark.setStyle("-fx-font-size:120;");
         Gui.this.lMark.setTextFill(Color.RED);
         Gui.this.timeline.stop();
-        Gui.this.bSubmit.setOnAction(null);
+        //Gui.this.bSubmit.setOnAction(null);
     }
     private int getMark(){
         for(int i=0; i < this.markLimits.length; i++){
