@@ -78,7 +78,7 @@ beans {
                 ref("t4_0"), ref("t4_1"), ref("t4_2"), ref("t4_3")
         ]
     }
-    testCollection(TestCollection){
+    testCollection5(TestCollection){
         grvCode =
                 "    String check(String in) {\n" +
                         "        ArrayList<String> al =  new ArrayList()\n" +
@@ -95,9 +95,26 @@ beans {
                 ref("t5_0"),ref("t5_1"),ref("t5_2"),ref("t5_3")
         ]
     }
+    testCollection(TestCollection){
+        grvCode =
+                "    String check(String in) {\n" +
+                        "        ArrayList<String> al =  new ArrayList()\n" +
+                        "        String[] arr=in.split(\" \")\n" +
+                        "\n" +
+                        "\n" +
+                        "//      zde doplňte kód\n " +
+                        "\n" +
+                        "\n" +
+                        "        return al.join(\" \")\n" +
+                        "    }\n";
+        difficulty = 1
+        testCollection = [
+                ref("t6_0"),ref("t6_1"),ref("t6_2"),ref("t6_3")
+        ]
+    }
     t1_0(MainTest) {
         id = 0
-        entry = "Doplňte metodu String check(String in) o cyklus, který výstupní seznam al naplní nultým, pátým a devátým prvkem vstupního pole arr."
+        entry = "C seznam al naplní nultým, pátým a devátým prvkem vstupního pole arr."
         inp = "1 2 3 4 5 6 7 8 9 10"
         out = "1 6 10"
     }
@@ -262,6 +279,38 @@ beans {
         entry = "Doplňte metodu String check(String in) o algoritmus, který převede vstupní znaky na číslo a to vypíše v hexadecimálním fotmátu"
         inp = "A h o j"
         out = "41 68 6f 6a"
+    }
+    t6_0(MainTest) {
+        id = 0
+        entry = "Doplňte metodu String check(String in) o cyklus, který pomocí TERNÁRNÍHO OPERÁTORU" +
+                " naplní seznam al řetězcem \"sudá\", nebo \"lichá\" dle vstupních čísel."
+        inp = "12 34 84 98 101 345235"
+        out = "sudá sudá sudá sudá lichá lichá"
+    }
+    t6_1(MainTest) {
+        id = 1
+        entry = "Doplňte metodu String check(String in) o cyklus, který pomocí TERNÁRNÍHO OPERÁTORU" +
+                " naplní seznam al řetězcem \"muž\", nebo \"žena\" dle vstupních jmen. Končí-li jméno na znak" +
+                " \"a\" jde o ženu jinak o muže."
+        inp = "Jana Pavel Miroslava Jiří Kateřina Lenka Jaroslav Petra"
+        out = "žena muž žena muž žena žena muž žena"
+    }
+    t6_2(MainTest) {
+        id = 2
+        entry = "Doplňte metodu String check(String in) o cyklus, který pomocí TERNÁRNÍHO OPERÁTORU" +
+                " naplní seznam al absolutní hodnotou vstupních čísel tak, že platí: \n" +
+                " |a| =  a pro a >= 0, \n" +
+                "     = -a pro a < 0 ."
+        inp = "6 -3 8 -90 47 -788"
+        out = "6 3 8 90 47 788"
+    }
+    t6_3(MainTest) {
+        id = 3
+        entry = "Doplňte metodu String check(String in) o cyklus, který pomocí TERNÁRNÍHO OPERÁTORU" +
+                " naplní seznam al řetězcem \"ráno\", \"dopoledne\", \"odpoledne\", nebo \"večer\" dle vstupních hodin." +
+                " 0-8: ráno, 9-12: dopoledne, 13-16: odpoledne, 17-23 večer."
+        inp = "11 23 9 13 8 4 0"
+        out = "dopoledne večer dopoledne odpoledne ráno ráno ráno"
     }
     welcomeScreen(WelcomeScreen){
         messages = [
