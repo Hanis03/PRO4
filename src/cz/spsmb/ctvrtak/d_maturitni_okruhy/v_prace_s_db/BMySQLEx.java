@@ -7,9 +7,9 @@ public class BMySQLEx {
     private final String dbms="mysql";
     private final String serverName = "vydb1.spsmb.cz";
     private final int portNumber = 3306;
-    private final String dbName = "";
-    private final String userName="";
-    private final String password="";
+    private final String dbName = "ucitelverejne_stemberk_test01";
+    private final String userName="jmeno";
+    private final String password="heslo";
     private Connection conn;
     public void getConnectionToDatabase() throws SQLException {
         {
@@ -113,14 +113,14 @@ public class BMySQLEx {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         Statement stmt;
         // Connection string pro DB mysql, server vydb1.spsmb.cz, port 3306 a DB mojedb
-        String url = "jdbc:mysql://vydb1.spsmb.cz:3306/mojedb";
-        Connection conn = DriverManager.getConnection(url, "mojejmeno", "mojeheslo");
+        String url = "jdbc:mysql://vydb1.spsmb.cz:3306/ucitelverejne_stemberk_test01";
+        Connection conn = DriverManager.getConnection(url, "jmeno", "heslo");
 
         // vytvoření tabulky ((C)RUD - Create)
         stmt = conn.createStatement();
         String sql = "CREATE TABLE IF NOT EXISTS mojetabulka " +
-                "(id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                " name VARCHAR(255) NOT NULL)" ;
+                "(id INTEGER PRIMARY KEY AUTO_INCREMENT," +
+                " name VARCHAR(255) NOT NULL);" ;
         stmt.executeUpdate(sql);
         stmt.close();
 

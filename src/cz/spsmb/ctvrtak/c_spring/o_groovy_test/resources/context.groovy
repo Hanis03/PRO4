@@ -3,36 +3,28 @@ import cz.spsmb.ctvrtak.c_spring.o_groovy_test.main.TestCollection
 import cz.spsmb.ctvrtak.c_spring.o_groovy_test.main.WelcomeScreen
 import cz.spsmb.ctvrtak.c_spring.o_groovy_test.main.MainTest
 
+
 beans {
+    code_1 =
+            "    String check(String in) {\n" +
+                    "        ArrayList<String> al =  new ArrayList()\n" +
+                    "        String[] arr=in.split(\" \")\n" +
+                    "\n" +
+                    "\n" +
+                    "//      zde doplňte kód\n " +
+                    "\n" +
+                    "\n" +
+                    "        return al.join(\" \")\n" +
+                    "    }\n";
     testCollection1(TestCollection){
-        grvCode =
-                "    String check(String in) {\n" +
-                        "        ArrayList<String> al =  new ArrayList()\n" +
-                        "        String[] arr=in.split(\" \")\n" +
-                        "\n" +
-                        "\n" +
-                        "//      zde doplňte kód\n " +
-                        "\n" +
-                        "\n" +
-                        "        return al.join(\" \")\n" +
-                        "    }\n";
+        grvCode = code_1
         difficulty = 1.0
         testCollection = [
                 ref("t1_0"), ref("t1_1"), ref("t1_2"), ref("t1_3"), ref("t1_4"), ref("t1_5"),
         ]
     }
     testCollection2(TestCollection){
-        grvCode =
-                "    String check(String in) {\n" +
-                        "        ArrayList<String> al =  new ArrayList()\n" +
-                        "        String[] arr=in.split(\" \")\n" +
-                        "\n" +
-                        "\n" +
-                        "//      zde doplňte kód\n " +
-                        "\n" +
-                        "\n" +
-                        "        return al.join(\" \")\n" +
-                        "    }\n";
+        grvCode = code_1
         difficulty = 1.3
         testCollection = [
                 //ref("t2_0"), ref("t2_1"), ref("t2_2"), ref("t2_3")
@@ -40,17 +32,7 @@ beans {
         ]
     }
     testCollection3(TestCollection){
-        grvCode =
-                "    String check(String in) {\n" +
-                        "        ArrayList<String> al =  new ArrayList()\n" +
-                        "        String[] arr=in.split(\" \")\n" +
-                        "\n" +
-                        "\n" +
-                        "//      zde doplňte kód\n " +
-                        "\n" +
-                        "\n" +
-                        "        return al.join(\" \")\n" +
-                        "    }\n";
+        grvCode = code_1
         difficulty = 2
         testCollection = [
                 ref("t3_0"), ref("t3_1"), ref("t3_2"), ref("t3_3")
@@ -79,42 +61,29 @@ beans {
         ]
     }
     testCollection5(TestCollection){
-        grvCode =
-                "    String check(String in) {\n" +
-                        "        ArrayList<String> al =  new ArrayList()\n" +
-                        "        String[] arr=in.split(\" \")\n" +
-                        "\n" +
-                        "\n" +
-                        "//      zde doplňte kód\n " +
-                        "\n" +
-                        "\n" +
-                        "        return al.join(\" \")\n" +
-                        "    }\n";
+        grvCode = code_1
         difficulty = 1
         testCollection = [
                 ref("t5_0"),ref("t5_1"),ref("t5_2"),ref("t5_3")
         ]
     }
-    testCollection(TestCollection){
-        grvCode =
-                "    String check(String in) {\n" +
-                        "        ArrayList<String> al =  new ArrayList()\n" +
-                        "        String[] arr=in.split(\" \")\n" +
-                        "\n" +
-                        "\n" +
-                        "//      zde doplňte kód\n " +
-                        "\n" +
-                        "\n" +
-                        "        return al.join(\" \")\n" +
-                        "    }\n";
+    testCollection6(TestCollection){
+        grvCode = code_1
         difficulty = 1
         testCollection = [
                 ref("t6_0"),ref("t6_1"),ref("t6_2"),ref("t6_3")
         ]
     }
+    testCollection(TestCollection){
+        grvCode = code_1
+        difficulty = 2
+        testCollection = [
+                ref("t7_0"), ref("t7_1"), ref("t7_2"), ref("t7_3"), ref("t7_4")
+        ]
+    }
     t1_0(MainTest) {
         id = 0
-        entry = "C seznam al naplní nultým, pátým a devátým prvkem vstupního pole arr."
+        entry = "Doplňte metodu String check(String in) o cyklus, který výstupní seznam al naplní nultým, pátým a devátým prvkem vstupního pole arr."
         inp = "1 2 3 4 5 6 7 8 9 10"
         out = "1 6 10"
     }
@@ -311,6 +280,47 @@ beans {
                 " 0-8: ráno, 9-12: dopoledne, 13-16: odpoledne, 17-23 večer."
         inp = "11 23 9 13 8 4 0"
         out = "dopoledne večer dopoledne odpoledne ráno ráno ráno"
+    }
+    t7_0(MainTest) {
+        id = 0
+        entry = "Doplňte metodu String check(String in) o algoritmus, který vrátí aritmetický průměr vstupního " +
+                "pole arr. Pro výpočet použijte datový typ float."
+        inp = "33 88 11 23 9 13 8 4 1 5"
+        out = "19.5"
+    }
+    t7_1(MainTest) {
+        id = 1
+        entry = "Doplňte metodu String check(String in) o algoritmus, který vrátí geometrický průměr vstupního pole arr. " +
+                "Geometrický průměr je definován jako n-tá odmocnina součinu všech n čísel. " +
+                "Použijte funkci Math.pow(soucin, 1.0/n). " +
+                "Pro výpočet použijte datový typ float."
+        inp = "33 88 11 23 9 13 8 4 1 5"
+        out = "10.323864565239498"
+    }
+    t7_2(MainTest) {
+        id = 2
+        entry = "Doplňte metodu String check(String in) o algoritmus, který vrátí medián vstupního pole arr." +
+                "Medián je definován jako prostřední hodnota vzestupně seřazeného pole. Pokud má pole " +
+                "sudý počet prvků (tento případ), jedná se o aritmetický průměr hodnot na místech n/2-1 a n/2. " +
+                "Pro výpočet použijte datový typ float."
+        inp = "33 88 11 23 9 13 8 4 1 5"
+        out = "10"
+    }
+    t7_3(MainTest) {
+        id = 3
+        entry = "Doplňte metodu String check(String in) o algoritmus, který vrátí dolní kvintil vstupního pole arr. " +
+                "Dolní kvintil je definován tak že 20%% hodnot v poli je menších (nebo rovných) hodnotě " +
+                "dolního kvintilu a 80%% hodnot je větších (nebo rovných)."
+        inp = "33 88 11 23 9 13 8 4 1 5"
+        out = "4"
+    }
+    t7_4(MainTest) {
+        id = 4
+        entry = "Doplňte metodu String check(String in) o algoritmus, který vrátí harmonický průměr vstupního pole arr. " +
+                "Harmonický průměr je definován jako podíl počtu čísel a součtu jejich převrácených hodnot. " +
+                "Pro výpočet použijte datový typ float."
+        inp = "33 88 11 23 9 13 8 4 1 5"
+        out = "5.157062927407182"
     }
     welcomeScreen(WelcomeScreen){
         messages = [
