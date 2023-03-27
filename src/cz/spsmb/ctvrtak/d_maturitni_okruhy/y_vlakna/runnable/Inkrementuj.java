@@ -1,7 +1,5 @@
 package cz.spsmb.ctvrtak.d_maturitni_okruhy.y_vlakna.runnable;
 
-import cz.spsmb.ctvrtak.d_maturitni_okruhy.y_vlakna.APriklad;
-
 public class Inkrementuj implements Runnable {
     public static  int tmp;
     // pokud použiji Runnable namísto Thread, musím implementovat metodu

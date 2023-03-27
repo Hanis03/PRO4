@@ -71,7 +71,8 @@ beans {
         grvCode = code_1
         difficulty = 1
         testCollection = [
-                ref("t6_0"),ref("t6_1"),ref("t6_2"),ref("t6_3")
+                //ref("t6_0"),ref("t6_1"),ref("t6_2"),
+                ref("t6_3")
         ]
     }
     testCollection7(TestCollection){
