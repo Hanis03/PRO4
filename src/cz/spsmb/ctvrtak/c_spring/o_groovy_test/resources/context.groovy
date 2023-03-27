@@ -74,11 +74,25 @@ beans {
                 ref("t6_0"),ref("t6_1"),ref("t6_2"),ref("t6_3")
         ]
     }
-    testCollection(TestCollection){
+    testCollection7(TestCollection){
         grvCode = code_1
         difficulty = 2
         testCollection = [
                 ref("t7_0"), ref("t7_1"), ref("t7_2"), ref("t7_3"), ref("t7_4")
+        ]
+    }
+    testCollection(TestCollection){
+        grvCode =
+                "    String check(String in) {\n" +
+                        "\n" +
+                        "\n" +
+                        "//      zde doplňte kód\n " +
+                        "\n" +
+                        "\n" +
+                        "    }\n";
+        difficulty = 3
+        testCollection = [
+                ref("t8_0"), ref("t8_1"), ref("t8_2"), ref("t8_3"), ref("t8_4")
         ]
     }
     t1_0(MainTest) {
@@ -321,6 +335,60 @@ beans {
                 "Pro výpočet použijte datový typ float."
         inp = "33 88 11 23 9 13 8 4 1 5"
         out = "5.157062927407182"
+    }
+    t8_0(MainTest) {
+        id = 0
+        entry = "Práce s řetězci a třída StringBuffer. Doplňte metodu String check(String in) o algoritmus, který ze vstupního řetězce vybere každý 2. znak a" +
+                " uloží ho do výstupního řetězce, který metoda vrátí."
+        inp = "Tohle je groovy simple test."
+        out = "ol egov ipets."
+    }
+    t8_1(MainTest) {
+        id = 1
+        entry = "Práce s řetězci a třída StringBuffer. Doplňte metodu String check(String in) o algoritmus, který ze vstupního řetězce vybere první polovinu znaků," +
+                " ty uloží do výstupního řetězce a přidá k němu tentýž řetězec pozpátku. Použijte 2 instance třídy StringBuffer," +
+                " kde jedna bude sloužit pro použití metody .reverse()."
+        inp = "groovy"
+        out = "groorg"
+    }
+    t8_2(MainTest) {
+        id = 2
+        entry = "Práce s řetězci a třída StringBuffer. Doplňte metodu String check(String in) o algoritmus, který ze vstupní řetězec zkopíruje do výstupního" +
+                " bez samohlásek a,e,i,o,u. K definici samohlásek použijte inicializovaný seznam: " +
+                " List<String> souhl = Arrays.asList(\"a\", \"e\", \"i\", \"y\", \"o\", \"u\") ."
+        inp = "simple groovy test is best"
+        out = "smpl grv tst s bst"
+    }
+    t8_3(MainTest) {
+        id = 3
+        entry = "Práce s řetězci a třída StringBuffer. Doplňte metodu String check(String in) o algoritmus, který ze vstupní řetězec zkopíruje do výstupního" +
+                " bez souhlásek. K definici samohlásek použijte inicializovaný seznam: " +
+                " List<String> souhl = Arrays.asList(\"a\", \"e\", \"i\", \"y\", \"o\", \"u\") ."
+        inp = "simple groovy test is best"
+        out = "ie ooy e i e"
+    }
+    t8_4(MainTest) {
+        id = 4
+        entry = "Práce s řetězci a třída StringBuffer. Doplňte metodu String check(String in) o algoritmus, který každou hodnotu znaku vstupního řetězce posune o 1 a" +
+                " uloží ho do výstupního řetězce, který metoda vrátí. Tzv. Caesarova šifra."
+        inp = "Ahoj lidi!"
+        out = "Bipk!mjej\""
+    }
+    t8_13_dobrovolne(MainTest) {
+        id = 13
+        entry = "Práce s řetězci a třída StringBuffer. Doplňte metodu String check(String in) o algoritmus, který ze vstupní řetězec zkopíruje do výstupního" +
+                " tak, že otočí pořadí samohlásek a,e,i,o,u. K definici samohlásek použijte inicializovaný seznam: " +
+                " List<String> souhl = Arrays.asList(\"a\", \"e\", \"i\", \"y\", \"o\", \"u\") ."
+        inp = "tohle je fajn škola"
+        out = "tahlo ja fejn škelo"
+    }
+    t8_14_dobrovolne(MainTest) {
+        id = 14
+        entry = "Práce s řetězci a třída StringBuffer. Doplňte metodu String check(String in) o algoritmus, který ze vstupní řetězec zkopíruje do výstupního" +
+                " tak, že otočí pořadí souhlásek. K definici samohlásek použijte inicializovaný seznam: " +
+                " List<String> souhl = Arrays.asList(\"a\", \"e\", \"i\", \"y\", \"o\", \"u\") ."
+        inp = "tohle je fajn škola"
+        out = "tahlo ja fejn škelo"
     }
     welcomeScreen(WelcomeScreen){
         messages = [

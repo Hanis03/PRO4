@@ -36,7 +36,7 @@ import java.time.LocalDateTime;
 import java.time.temporal.TemporalField;
 
 public class Gui extends Application {
-    public static final int N_FREE_TRIES = 3;
+    public static final int N_FREE_TRIES = 5;
     //private static ClassPathXmlApplicationContext context;
     private static ApplicationContext context;
     private static boolean isCheat;
@@ -123,6 +123,8 @@ public class Gui extends Application {
             taCode.setMinSize(500, 400);
             root.setTop(this.tfwEntry);
             root.setCenter(this.taCode);
+            this.customizeAccordingToLevel(this.testCollection.getDifficulty());
+            this.lTimer.setText(Integer.toString(this.seconds));
         }
 
     }
@@ -183,7 +185,12 @@ public class Gui extends Application {
     private void refreshFreeTries(){
         this.lFreeTries.setText(String.format("pokusú: %d", freeTries));
     }
-
+    private void customizeAccordingToLevel(double level) {
+        this.seconds *= level;
+        for(int i=0; i<this.markLimits.length; i++){
+            this.markLimits[i] *=level;
+        }
+    }
     public static void main(String[] args) {
         Application.launch(args);
     }

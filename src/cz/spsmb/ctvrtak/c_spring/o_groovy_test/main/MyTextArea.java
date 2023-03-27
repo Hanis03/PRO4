@@ -14,7 +14,7 @@ public class MyTextArea extends TextArea {
         super(s);
     }
 
-    @Override
+    /*@Override
     public void paste() {
         BorderPane bp = (BorderPane) this.getParent();
         VBox n = (VBox) bp.getLeft();
@@ -27,5 +27,5 @@ public class MyTextArea extends TextArea {
         n.getChildren().add(svg);
         //System.out.println("NELZE");
         //super.paste();
-    }
+    }*/
 }
