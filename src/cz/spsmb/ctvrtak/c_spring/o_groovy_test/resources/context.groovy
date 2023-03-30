@@ -82,7 +82,7 @@ beans {
                 ref("t7_0"), ref("t7_1"), ref("t7_2"), ref("t7_3"), ref("t7_4")
         ]
     }
-    testCollection(TestCollection){
+    testCollection8(TestCollection){
         grvCode =
                 "    String check(String in) {\n" +
                         "\n" +
@@ -94,6 +94,20 @@ beans {
         difficulty = 3
         testCollection = [
                 ref("t8_0"), ref("t8_1"), ref("t8_2"), ref("t8_3"), ref("t8_4")
+        ]
+    }
+    testCollection(TestCollection){
+        imports =
+                "import java.time.LocalDate;\n" +
+                "import java.time.LocalTime;\n" +
+                "import java.time.LocalDateTime;\n" +
+                "import java.time.format.DateTimeFormatter;\n" +
+                "import java.time.temporal.ChronoUnit;\n"
+
+        grvCode = code_1
+        difficulty = 1
+        testCollection = [
+                ref("t9_0"), ref("t9_1"), ref("t9_2"), ref("t9_3"), ref("t9_4")
         ]
     }
     t1_0(MainTest) {
@@ -391,6 +405,50 @@ beans {
         inp = "tohle je fajn škola"
         out = "tahlo ja fejn škelo"
     }
+    t9_0(MainTest) {
+        id = 0
+        entry = "Datum a čas. Načtěte data z pole Stringů arr do instance třídy LocalDate pomocí tovární statické metody " +
+                "LocalDate.parse(String in). Přičtěte pomocí metody plus(n, ChronoUnit.MONTHS) jeden měsíc a výsledek " +
+                "přidejte do výstupního seznamu al."
+        inp = "2022-03-30 2022-03-31 2022-05-01 2022-08-31"
+        out = "2022-04-30 2022-04-30 2022-06-01 2022-09-30"
+    }
+    t9_1(MainTest) {
+        id = 1
+        entry = "Datum a čas. Načtěte data z pole Stringů arr do instance třídy LocalDate pomocí tovární statické metody " +
+                "LocalDate.parse(String in). Vyrobte instanci třídy LocalDateTime pomocí tovární statické metody " +
+                "LocalDateTime.of(LocalDate ld, LocalTime lt)  Jako lt použijte čas 14:00:01 a výsledek " +
+                "přidejte do výstupního seznamu al."
+        inp = "2022-03-30 2022-03-31 2022-05-01 2022-08-31"
+        out = "2022-03-30T14:00:01 2022-03-31T14:00:01 2022-05-01T14:00:01 2022-08-31T14:00:01"
+    }
+    t9_2(MainTest) {
+        id = 2
+        entry = "Datum a čas. Načtěte data z pole Stringů arr do instance třídy LocalTime pomocí tovární statické metody " +
+                "LocalTime.parse(String in). Odečtěte pomocí metody minus(n, ChronoUnit.MINUTES) 45 minut a výsledek " +
+                "přidejte do výstupního seznamu al."
+        inp = "15:30 17:22 18:01 22:22 23:23"
+        out = "14:45 16:37 17:16 21:37 22:38"
+    }
+    t9_3(MainTest) {
+        id = 3
+        entry = "Datum a čas. Načtěte data z pole Stringů arr do instance třídy LocalDate pomocí tovární statické metody " +
+                "LocalDate.parse(String in). Pomocí statické metody ChronoUnit.DAYS.between(LocalDate date1, LocalDate date2) " +
+                "zjistěte, kolik zbývá dnů do Vánoc 2023 jednotlivých datumů. Tyto počty přidejte " +
+                "do výstupního seznamu al."
+        inp = "2023-03-30 2023-03-31 2023-05-01 2023-08-31"
+        out = "269 268 237 115"
+    }
+    t9_4(MainTest) {
+        id = 4
+        entry = "Datum a čas. Načtěte data z pole Stringů arr do instance třídy LocalDate pomocí tovární statické metody " +
+                "LocalDate.parse(String in). Vypište tyto datumy pomocí ve formátu např.: 31.října,2023 22 pomocí metody " +
+                "date.format(DateTimeFormatter.ofPattern(\"...\") a výsledek " +
+                "přidejte do výstupního seznamu al."
+        inp = "2023-03-30 2023-03-31 2023-05-01 2023-08-31"
+        out = "30.března,2023 31.března,2023 01.května,2023 31.srpna,2023"
+    }
+    //2022-04-30T11:36:38.051628200
     welcomeScreen(WelcomeScreen){
         messages = [
                 " Vítej v Groovy Simple Testu ! ",

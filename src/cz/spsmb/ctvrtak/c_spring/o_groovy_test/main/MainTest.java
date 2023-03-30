@@ -41,6 +41,8 @@ public class MainTest {
         this.inp = inp;
     }
 
+
+
     public int getId() {
         return id;
     }

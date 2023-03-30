@@ -40,6 +40,7 @@ public class BPriklad {
         vlakno1.start();
         vlakno2.start();
 
+
     }
 
 }

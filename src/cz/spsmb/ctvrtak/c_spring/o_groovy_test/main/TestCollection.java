@@ -9,17 +9,21 @@ public class TestCollection {
     private List<MainTest> testCollection;
     private int id;
     private double difficulty;
+    private String imports;
     private String initGroovyCode;
     private String grvCode;
 
     public String getInitGroovyCode() {
         return String.format(
                 "import cz.spsmb.ctvrtak.c_spring.o_groovy_test.main.Testable;\n" +
+                 "%s" +
                 "class GroovyScriptTest implements Testable {\n" +
                 "%s" +
-                "}", grvCode);
+                "}", imports == null ? "":imports, grvCode);
     }
-
+    public void setImports(String imports) {
+        this.imports = imports;
+    }
     public void setGrvCode(String grvCode) {
         this.grvCode = grvCode;
     }
