@@ -15,49 +15,47 @@ import javafx.stage.Stage;
  * V případě kolize obou kruhů změňte barvu jednoho z nich.
  */
 public class AZadani extends Application {
-    private Circle c1 = new Circle(50,100, 20, Color.GRAY);
-    private Circle c2 = new Circle(150,100, 20, Color.GREEN);
+    private Circle circle1 = new Circle(50, 50, 30, Color.RED);
+    private Circle circle2 = new Circle(100, 100, 30, Color.BLUE);
     @Override
     public void start(Stage stage) throws Exception {
-        Pane root = new Pane(this.c1, this.c2);
+        Pane root = new Pane();
         Scene scene = new Scene(root,400,400);
         stage.setScene(scene);
         stage.show();
+
+        root.getChildren().addAll(this.circle1,this.circle2);
+
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent keyEvent) {
-                System.out.println("Key pressed");
-                if(keyEvent.getCode() == KeyCode.D){
-                    c1.setCenterX(c1.getCenterX()+1);
+                if (keyEvent.getCode() == KeyCode.A){
+                    circle1.setCenterX(circle1.getCenterX()-2);
                 }
-                if(keyEvent.getCode() == KeyCode.A){
-                    c1.setCenterX(c1.getCenterX()-1);
+                if (keyEvent.getCode() == KeyCode.S){
+                    circle1.setCenterY(circle1.getCenterY()+2);
                 }
-                if(keyEvent.getCode() == KeyCode.W){
-                    c1.setCenterY(c1.getCenterY()-1);
+                if (keyEvent.getCode() == KeyCode.W){
+                    circle1.setCenterY(circle1.getCenterY()-2);
                 }
-                if(keyEvent.getCode() == KeyCode.S){
-                    c1.setCenterY(c1.getCenterY()+1);
+                if (keyEvent.getCode() == KeyCode.D){
+                    circle1.setCenterX(circle1.getCenterX()+2);
                 }
-
-                if(isCollided()){
-                    c1.setFill(Color.RED);
+                if (isCollided()){
+                    circle1.setFill(Color.GREEN);
                 } else {
-                    c1.setFill(Color.GRAY);
+                    circle1.setFill(Color.RED);
                 }
             }
         });
-    }
 
-    public boolean isCollided() {
-        double deltaXsquare = Math.pow(this.c2.getCenterX()-this.c1.getCenterX(),2);
-        double deltaYsquare = Math.pow(this.c2.getCenterY()-this.c1.getCenterY(),2);
-        double rSquare = Math.pow(this.c1.getRadius()+this.c2.getRadius(),2);
-        System.out.format("deltaXsquare: %f, deltaYsquare: %f,  rSquare: %f \n",
-                deltaXsquare,
-                deltaYsquare,
-                rSquare);
-        return deltaXsquare+deltaYsquare < rSquare;
+    }
+    public boolean isCollided(){
+        double getDeltaYsquare = Math.pow(this.circle2.getCenterY()-this.circle1.getCenterY(), 2);
+        double getDeltaXsquare = Math.pow(this.circle2.getCenterX()-this.circle1.getCenterX(),2);
+        double rSquare = Math.pow(this.circle1.getRadius()+this.circle2.getRadius(),2);
+        System.out.format("getDeltaXsquare %f, getDeltaYsquare %f, rSquare %f \n", getDeltaXsquare, getDeltaYsquare,rSquare);
+        return getDeltaXsquare+getDeltaYsquare < rSquare;
     }
 
     public static void main(String[] args) {

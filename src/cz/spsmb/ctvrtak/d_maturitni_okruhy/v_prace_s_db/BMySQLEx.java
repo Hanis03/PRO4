@@ -7,9 +7,9 @@ public class BMySQLEx {
     private final String dbms="mysql";
     private final String serverName = "vydb1.spsmb.cz";
     private final int portNumber = 3306;
-    private final String dbName = "ucitelverejne_stemberk_test01";
-    private final String userName="jmeno";
-    private final String password="heslo";
+    private final String dbName = "";
+    private final String userName="";
+    private final String password="";
     private Connection conn;
     public void getConnectionToDatabase() throws SQLException {
         {
@@ -113,20 +113,29 @@ public class BMySQLEx {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         Statement stmt;
         // Connection string pro DB mysql, server vydb1.spsmb.cz, port 3306 a DB mojedb
-        String url = "jdbc:mysql://vydb1.spsmb.cz:3306/ucitelverejne_stemberk_test01";
-        Connection conn = DriverManager.getConnection(url, "jmeno", "heslo");
+        //String url = "jdbc:mysql://vydb1.spsmb.cz:3306/mojedb";
+        String url = "jdbc:mysql://mysql.hostnow.cz:3306/sql1362_admin";
+        Connection conn = DriverManager.getConnection(url, "sql1362_admin", "vitek0025");
 
         // vytvoření tabulky ((C)RUD - Create)
         stmt = conn.createStatement();
         String sql = "CREATE TABLE IF NOT EXISTS mojetabulka " +
                 "(id INTEGER PRIMARY KEY AUTO_INCREMENT," +
-                " name VARCHAR(255) NOT NULL);" ;
+                " name VARCHAR(255) NOT NULL)" ;
         stmt.executeUpdate(sql);
         stmt.close();
 
+        stmt = conn.createStatement();
+        ResultSet rs1 = stmt.executeQuery("SELECT * FROM mojetabulka ORDER BY 1 DESC LIMIT 1;");
+        int id = 1;
+        while (rs1.next()) {
+            id = rs1.getInt("id") + 1;
+        }
+
+
         //naplnění daty ((C)RUD -Create)
         PreparedStatement pstmt = conn.prepareStatement("INSERT INTO mojetabulka (name) VALUES (?)");
-        pstmt.setString(1, "první záznam do DB");
+        pstmt.setString(1, String.format("%d. záznam do DB", id));
         pstmt.executeUpdate();
 
         //čtení dat (C(R)UD - Read)
